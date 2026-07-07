@@ -1,0 +1,1763 @@
+<!DOCTYPE html>
+<html lang="tr" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Selim Taşdemir · Mekatronik Mühendisi</title>
+  <meta name="description" content="Selim Taşdemir - Mekatronik Mühendisi Portfolio & CV" />
+  <link rel="preconnect" href="https://api.fontshare.com" crossorigin />
+  <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@400,500,700,800,900&f[]=satoshi@300,400,500,700,900&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 32 32%22><rect width=%2232%22 height=%2232%22 rx=%224%22 fill=%22%230055FF%22/><text x=%2216%22 y=%2222%22 text-anchor=%22middle%22 font-family=%22Arial,sans-serif%22 font-weight=%22900%22 font-size=%2216%22 fill=%22white%22>ST</text></svg>" />
+
+  <style>
+    /* ===== RESET & BASE ===== */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Satoshi', ui-sans-serif, system-ui, sans-serif;
+      font-feature-settings: "ss01", "cv02";
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      line-height: 1.6;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+    img { max-width: 100%; display: block; }
+    a { color: inherit; text-decoration: none; }
+    ul { list-style: none; }
+    h1, h2, h3, h4, h5, .font-display {
+      font-family: 'Cabinet Grotesk', 'Satoshi', ui-sans-serif, sans-serif;
+      letter-spacing: -0.02em;
+    }
+    .font-mono, code, .label-mono {
+      font-family: 'JetBrains Mono', ui-monospace, monospace;
+    }
+
+    /* ===== THEME VARIABLES ===== */
+    :root {
+      --background: #FAFAFA;
+      --foreground: #0A0A0A;
+      --card: #FFFFFF;
+      --card-foreground: #0A0A0A;
+      --muted: #F4F4F5;
+      --muted-foreground: #52525B;
+      --border: #E4E4E7;
+      --primary: #0055FF;
+      --primary-hover: #0044CC;
+      --primary-foreground: #FFFFFF;
+      --destructive: #EF4444;
+      --radius: 0.25rem;
+      --shadow: 0 4px 12px rgba(0,0,0,0.08);
+      --header-bg: rgba(250, 250, 250, 0.7);
+    }
+
+    [data-theme="dark"] {
+      --background: #09090B;
+      --foreground: #FFFFFF;
+      --card: #121214;
+      --card-foreground: #FFFFFF;
+      --muted: #18181B;
+      --muted-foreground: #A1A1AA;
+      --border: #27272A;
+      --primary: #3B82F6;
+      --primary-hover: #60A5FA;
+      --primary-foreground: #FFFFFF;
+      --destructive: #F87171;
+      --shadow: 0 4px 12px rgba(0,0,0,0.4);
+      --header-bg: rgba(9, 9, 11, 0.7);
+    }
+
+    body { background: var(--background); color: var(--foreground); }
+
+    /* ===== UTILITY ===== */
+    .section-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 0.6rem;
+    }
+    @media (min-width: 768px) { .section-container { padding: 0 2rem; } }
+    @media (min-width: 1024px) { .section-container { padding: 0 3rem; } }
+
+    .section-padding { padding-top: 5rem; padding-bottom: 5rem; }
+
+    .label-overline {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.6875rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--muted-foreground);
+      margin-bottom: 0.75rem;
+    }
+
+    .grid-border {
+      border: 1px solid var(--border);
+      background: var(--card);
+    }
+
+    .rounded-sm { border-radius: var(--radius); }
+
+    /* ===== HEADER ===== */
+    .header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      background: var(--header-bg);
+      border-bottom: 1px solid var(--border);
+      transition: background 0.3s ease;
+    }
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 4rem;
+    }
+    .header-brand {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+    .brand-icon {
+      width: 2rem;
+      height: 2rem;
+      display: grid;
+      place-items: center;
+      background: var(--primary);
+      color: var(--primary-foreground);
+      font-family: 'Cabinet Grotesk', sans-serif;
+      font-weight: 900;
+      font-size: 0.8125rem;
+      border-radius: var(--radius);
+    }
+    .brand-text {
+      font-family: 'Cabinet Grotesk', sans-serif;
+      font-weight: 700;
+      font-size: 1rem;
+      letter-spacing: -0.02em;
+    }
+
+    .nav { display: none; }
+    @media (min-width: 768px) {
+      .nav { display: flex; align-items: center; gap: 1.75rem; }
+      .nav a {
+        font-size: 0.875rem;
+        font-weight: 500;
+        color: var(--muted-foreground);
+        transition: color 0.2s ease;
+      }
+      .nav a:hover { color: var(--primary); }
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .btn-icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      height: 2.25rem;
+      padding: 0 0.75rem;
+      font-size: 0.75rem;
+      font-family: 'JetBrains Mono', monospace;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      border: 1px solid var(--border);
+      background: transparent;
+      color: var(--foreground);
+      cursor: pointer;
+      border-radius: var(--radius);
+      transition: border-color 0.2s, color 0.2s;
+    }
+    .btn-icon:hover {
+      border-color: var(--primary);
+      color: var(--primary);
+    }
+    .btn-icon-square {
+      width: 2.25rem;
+      padding: 0;
+    }
+    .btn-icon svg {
+      width: 0.875rem;
+      height: 0.875rem;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.625rem 1.25rem;
+      font-size: 0.875rem;
+      font-weight: 500;
+      background: var(--primary);
+      color: var(--primary-foreground);
+      border: none;
+      cursor: pointer;
+      border-radius: var(--radius);
+      transition: background 0.2s ease;
+    }
+    .btn-primary:hover { background: var(--primary-hover); }
+    .btn-outline {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.625rem 1.25rem;
+      font-size: 0.875rem;
+      font-weight: 500;
+      background: transparent;
+      color: var(--foreground);
+      border: 1px solid var(--border);
+      cursor: pointer;
+      border-radius: var(--radius);
+      transition: border-color 0.2s, color 0.2s;
+    }
+    .btn-outline:hover { border-color: var(--primary); color: var(--primary); }
+
+    .mobile-menu-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 2.25rem;
+      height: 2.25rem;
+      background: transparent;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      cursor: pointer;
+      color: var(--foreground);
+    }
+    .mobile-menu-btn svg { width: 1.125rem; height: 1.125rem; }
+    @media (min-width: 768px) { .mobile-menu-btn { display: none; } }
+
+    .mobile-menu {
+      display: none;
+      border-top: 1px solid var(--border);
+      padding: 1rem 0;
+    }
+    .mobile-menu.open { display: block; }
+    .mobile-menu a {
+      display: block;
+      padding: 0.625rem 0;
+      font-size: 0.9375rem;
+      font-weight: 500;
+      color: var(--muted-foreground);
+      transition: color 0.2s;
+    }
+    .mobile-menu a:hover { color: var(--primary); }
+
+    /* ===== HERO SECTION ===== */
+    .hero {
+      border-bottom: 1px solid var(--border);
+    }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 3rem;
+      align-items: end;
+      padding-top: 5rem;
+      padding-bottom: 5rem;
+      position: relative;
+      z-index: 1;
+    }
+    @media (min-width: 1024px) {
+      .hero-grid { grid-template-columns: 2fr 1fr; padding-top: 7rem; padding-bottom: 8rem; }
+    }
+
+    .hero h1 {
+      font-size: 2.75rem;
+      font-weight: 900;
+      letter-spacing: -0.03em;
+      line-height: 0.95;
+    }
+    @media (min-width: 640px) { .hero h1 { font-size: 3.75rem; } }
+    @media (min-width: 1024px) { .hero h1 { font-size: 4.5rem; } }
+
+    .hero-tagline {
+      margin-top: 1.5rem;
+      font-size: 1.0625rem;
+      line-height: 1.7;
+      color: var(--muted-foreground);
+      max-width: 40rem;
+    }
+    @media (min-width: 640px) { .hero-tagline { font-size: 1.125rem; } }
+
+    .hero-actions {
+      margin-top: 2.5rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+    }
+
+    .hero-card {
+      border: 1px solid var(--border);
+      background: var(--card);
+      border-radius: var(--radius);
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+    .hero-card .avatar {
+      width: 100%;
+      aspect-ratio: 1;
+      object-fit: cover;
+      border-radius: var(--radius);
+      background: var(--muted);
+    }
+    .hero-card .avatar-placeholder {
+      width: 100%;
+      aspect-ratio: 1;
+      border-radius: var(--radius);
+      background: var(--muted);
+      display: grid;
+      place-items: center;
+      font-size: 3rem;
+      font-family: 'Cabinet Grotesk', sans-serif;
+      font-weight: 900;
+      color: var(--muted-foreground);
+    }
+    .hero-card .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 0.375rem;
+    }
+    .hero-card .label-overline + .contact-grid {
+      padding-top: 0.5rem;
+    }
+    @media (min-width: 400px) { .hero-card .contact-grid { grid-template-columns: 1fr 1fr; } }
+    .hero-card .contact-row {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.8125rem;
+      padding: 0.375rem 0.5rem;
+      border-radius: var(--radius);
+      transition: background 0.2s ease;
+    }
+    .hero-card .contact-row:hover {
+      background: var(--muted);
+    }
+    .hero-card .contact-row svg {
+      width: 0.875rem;
+      height: 0.875rem;
+      color: var(--primary);
+      flex-shrink: 0;
+      opacity: 0.8;
+    }
+
+    /* ===== SECTION COMMON ===== */
+    section { border-bottom: 1px solid var(--border); }
+    .section-header-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2.5rem;
+    }
+    @media (min-width: 1024px) {
+      .section-header-grid { grid-template-columns: 1fr 2fr; }
+    }
+
+    .section-title {
+      font-size: 1.875rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+    @media (min-width: 640px) { .section-title { font-size: 2.25rem; } }
+
+    /* ===== ABOUT ===== */
+    .about-text {
+      font-size: 1.0625rem;
+      line-height: 1.8;
+      color: var(--foreground);
+      opacity: 0.9;
+      white-space: pre-line;
+    }
+
+    /* ===== CARDS (Experience, Education) ===== */
+    .experience-list, .education-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+    .card-item {
+      border: 1px solid var(--border);
+      background: var(--card);
+      border-radius: var(--radius);
+      padding: 1.5rem;
+      transition: all 0.3s ease;
+    }
+    .card-item:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow);
+    }
+    .card-header {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 0.75rem;
+    }
+    .card-title {
+      font-family: 'Cabinet Grotesk', sans-serif;
+      font-size: 1.125rem;
+      font-weight: 700;
+    }
+    @media (min-width: 640px) { .card-title { font-size: 1.25rem; } }
+
+    .card-subtitle {
+      color: var(--muted-foreground);
+      font-size: 0.9375rem;
+    }
+    .card-date {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.75rem;
+      color: var(--muted-foreground);
+      white-space: nowrap;
+    }
+    .card-desc {
+      margin-top: 0.75rem;
+      font-size: 0.875rem;
+      line-height: 1.7;
+      color: var(--foreground);
+      opacity: 0.9;
+    }
+
+    /* ===== SKILLS ===== */
+    .skills-list { display: flex; flex-direction: column; gap: 2rem; }
+    .skill-category-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.6875rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--muted-foreground);
+      margin-bottom: 0.75rem;
+    }
+    .skill-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 0.625rem 2rem;
+    }
+    @media (min-width: 640px) { .skill-grid { grid-template-columns: 1fr 1fr; } }
+    .skill-row {
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+    }
+    .skill-label-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+    }
+    .skill-name { font-weight: 500; font-size: 0.9375rem; }
+    .skill-level-text {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.75rem;
+      color: var(--muted-foreground);
+    }
+    .skill-bar {
+      height: 0.375rem;
+      background: var(--muted);
+      border-radius: var(--radius);
+      overflow: hidden;
+    }
+    .skill-bar-fill {
+      height: 100%;
+      background: var(--primary);
+      border-radius: var(--radius);
+      transition: width 0.8s ease;
+    }
+
+    /* ===== PROJECTS ===== */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+    @media (min-width: 640px) { .projects-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (min-width: 1024px) { .projects-grid { grid-template-columns: repeat(3, 1fr); } }
+
+    .project-card {
+      border: 1px solid var(--border);
+      background: var(--card);
+      border-radius: var(--radius);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: all 0.3s ease;
+    }
+    .project-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow);
+    }
+    .project-cover {
+      aspect-ratio: 16 / 10;
+      overflow: hidden;
+      background: var(--muted);
+      position: relative;
+    }
+    .project-cover img,
+    .project-cover-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+    .project-card:hover .project-cover img,
+    .project-card:hover .project-cover-img { transform: scale(1.05); }
+    .project-cover-placeholder {
+      width: 100%;
+      height: 100%;
+      background: var(--muted);
+      background-image:
+        linear-gradient(to right, var(--border) 1px, transparent 1px),
+        linear-gradient(to bottom, var(--border) 1px, transparent 1px);
+      background-size: 56px 56px;
+    }
+    .project-cover-img {
+      display: block;
+    }
+    .project-featured-badge {
+      z-index: 2;
+    }
+    .project-featured-badge {
+      position: absolute;
+      top: 0.75rem;
+      left: 0.75rem;
+      padding: 0.25rem 0.5rem;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.6875rem;
+      background: var(--primary);
+      color: var(--primary-foreground);
+      border-radius: var(--radius);
+    }
+    .project-body {
+      padding: 1.5rem;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 0.625rem;
+    }
+    .project-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .project-year {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.75rem;
+      color: var(--muted-foreground);
+    }
+    .project-title {
+      font-family: 'Cabinet Grotesk', sans-serif;
+      font-size: 1.125rem;
+      font-weight: 700;
+    }
+    @media (min-width: 640px) { .project-title { font-size: 1.25rem; } }
+    .project-summary {
+      font-size: 0.8125rem;
+      color: var(--muted-foreground);
+      line-height: 1.6;
+    }
+    .project-desc {
+      font-size: 0.875rem;
+      line-height: 1.7;
+      opacity: 0.9;
+      display: -webkit-box;
+      -webkit-line-clamp: 4;
+      -webkit-box-orient: vertical;
+      line-clamp: 4;
+      overflow: hidden;
+    }
+    .project-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.375rem;
+      padding-top: 0.5rem;
+    }
+    .project-tag {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.6875rem;
+      padding: 0.25rem 0.5rem;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      color: var(--muted-foreground);
+    }
+    .project-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.375rem;
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: var(--primary);
+      margin-top: auto;
+      padding-top: 0.75rem;
+    }
+    .project-link:hover { text-decoration: underline; }
+    .project-link svg { width: 1rem; height: 1rem; }
+
+    /* ===== CERTIFICATIONS ===== */
+    .cert-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.25rem;
+    }
+    @media (min-width: 768px) { .cert-grid { grid-template-columns: repeat(2, 1fr); } }
+
+    .cert-card {
+      border: 1px solid var(--border);
+      background: var(--card);
+      border-radius: var(--radius);
+      overflow: hidden;
+      display: flex;
+      flex-direction: row;
+      transition: all 0.3s ease;
+    }
+    .cert-card:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow);
+    }
+    .cert-card-img {
+      width: 100px;
+      min-width: 100px;
+      height: 80px;
+      object-fit: contain;
+      background: var(--muted);
+      border-right: 1px solid var(--border);
+      transition: transform 0.4s ease;
+      padding: 0.5rem;
+      flex-shrink: 0;
+    }
+    .cert-card:hover .cert-card-img { transform: scale(1.05); }
+    .cert-card-body {
+      padding: 0.625rem 1rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+      justify-content: center;
+      flex: 1;
+      min-width: 0;
+    }
+    .cert-card-name {
+      font-weight: 600;
+      font-size: 1rem;
+    }
+    .cert-card-issuer {
+      font-size: 0.8125rem;
+      color: var(--muted-foreground);
+    }
+    .cert-card-date {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.6875rem;
+      color: var(--muted-foreground);
+      margin-top: 0.25rem;
+    }
+
+    /* ===== REFERENCES ===== */
+    .ref-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.25rem;
+    }
+    @media (min-width: 768px) { .ref-grid { grid-template-columns: repeat(2, 1fr); } }
+
+    .ref-card {
+      border: 1px solid var(--border);
+      background: var(--card);
+      border-radius: var(--radius);
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      transition: all 0.3s ease;
+    }
+    .ref-card:hover { transform: translateY(-3px); box-shadow: var(--shadow); }
+    .ref-name {
+      font-family: 'Cabinet Grotesk', sans-serif;
+      font-size: 1.0625rem;
+      font-weight: 700;
+      color: var(--foreground);
+      line-height: 1.3;
+    }
+    .ref-title {
+      font-size: 0.875rem;
+      line-height: 1.5;
+      color: var(--muted-foreground);
+      opacity: 0.9;
+    }
+    .ref-phone {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.875rem;
+      color: var(--primary);
+      padding-top: 0.5rem;
+      border-top: 1px solid var(--border);
+      margin-top: auto;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .ref-phone:hover { color: var(--primary-hover); }
+    .ref-phone svg {
+      width: 1rem;
+      height: 1rem;
+      flex-shrink: 0;
+    }
+
+    /* ===== FOOTER ===== */
+    .footer {
+      border-top: 1px solid var(--border);
+      margin-top: 6rem;
+    }
+    .footer-inner {
+      padding-top: 2.5rem;
+      padding-bottom: 2.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    @media (min-width: 640px) {
+      .footer-inner {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+      }
+    }
+    .footer-copy {
+      font-size: 0.875rem;
+      color: var(--muted-foreground);
+    }
+    .footer-nav {
+      display: flex;
+      gap: 1rem;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--muted-foreground);
+    }
+    .footer-nav a:hover { color: var(--primary); }
+
+    /* ===== ANIMATIONS ===== */
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    @keyframes scaleIn {
+      from { opacity: 0; transform: scale(0.9); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    .animate-in {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.5s ease, transform 0.5s ease;
+    }
+    .animate-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .stagger-children > * {
+      opacity: 0;
+      transform: translateY(16px);
+      transition: opacity 0.4s ease, transform 0.4s ease;
+    }
+    .stagger-children.visible > *:nth-child(1) { transition-delay: 0.05s; opacity: 1; transform: translateY(0); }
+    .stagger-children.visible > *:nth-child(2) { transition-delay: 0.1s; opacity: 1; transform: translateY(0); }
+    .stagger-children.visible > *:nth-child(3) { transition-delay: 0.15s; opacity: 1; transform: translateY(0); }
+    .stagger-children.visible > *:nth-child(4) { transition-delay: 0.2s; opacity: 1; transform: translateY(0); }
+    .stagger-children.visible > *:nth-child(5) { transition-delay: 0.25s; opacity: 1; transform: translateY(0); }
+    .stagger-children.visible > *:nth-child(6) { transition-delay: 0.3s; opacity: 1; transform: translateY(0); }
+    .stagger-children.visible > *:nth-child(7) { transition-delay: 0.35s; opacity: 1; transform: translateY(0); }
+    .stagger-children.visible > *:nth-child(8) { transition-delay: 0.4s; opacity: 1; transform: translateY(0); }
+    .stagger-children.visible > *:nth-child(9) { transition-delay: 0.45s; opacity: 1; transform: translateY(0); }
+    .stagger-children.visible > *:nth-child(10) { transition-delay: 0.5s; opacity: 1; transform: translateY(0); }
+
+    [data-theme="dark"] svg.icon-muted { color: #A1A1AA; }
+
+    /* ===== REDUCED MOTION ===== */
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+      }
+      .animate-in { opacity: 1; transform: none; transition: none; }
+      .stagger-children > * { opacity: 1; transform: none; transition: none; }
+      .card-item:hover { transform: none; }
+      .ref-card:hover { transform: none; }
+      .project-card:hover { transform: none; }
+      .project-card:hover .project-cover img { transform: none; }
+    }
+
+    /* ===== PRINT ===== */
+    @media print {
+      .header, .footer, .btn-primary, .btn-outline, .btn-icon, .mobile-menu-btn { display: none !important; }
+      section { border-bottom: 1px solid #ccc !important; break-inside: avoid; }
+      body { background: white !important; color: black !important; }
+      .card-item, .ref-card { break-inside: avoid; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ===== HEADER ===== -->
+  <header class="header" data-testid="site-header">
+    <div class="section-container header-inner">
+      <a href="#hero" class="header-brand" data-testid="brand-link">
+        <span class="brand-icon">ST</span>
+        <span class="brand-text">Selim Taşdemir</span>
+      </a>
+
+      <nav class="nav" data-testid="nav-links">
+        <a href="#about" data-testid="nav-about-link" data-i18n="nav_about">Hakkımda</a>
+        <a href="#experience" data-testid="nav-experience-link" data-i18n="nav_experience">Deneyim</a>
+        <a href="#projects" data-testid="nav-projects-link" data-i18n="nav_projects">Projeler</a>
+        <a href="#skills" data-testid="nav-skills-link" data-i18n="nav_skills">Yetenekler</a>
+        <a href="#references" data-testid="nav-references-link" data-i18n="nav_references">Referanslar</a>
+      </nav>
+
+      <div class="header-actions">
+        <button type="button" class="btn-icon" onclick="toggleLang()" data-testid="lang-switcher-btn" title="Language">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 8h14"/><path d="M19 8c0 5.5-4 9-7 10"/><path d="M5 8c0 5.5 4 9 7 10"/><path d="M12 2v20"/></svg>
+          <span id="lang-label">TR</span>
+        </button>
+
+        <button type="button" class="btn-icon btn-icon-square" onclick="toggleTheme()" data-testid="theme-toggle-btn" title="Theme">
+          <svg id="theme-icon-sun" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg>
+          <svg id="theme-icon-moon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        </button>
+
+        <button type="button" class="mobile-menu-btn" onclick="toggleMobileMenu()" aria-label="Menu" data-testid="mobile-menu-btn">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="6" x2="20" y2="6"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="18" x2="20" y2="18"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <div class="mobile-menu section-container" id="mobile-menu">
+      <a href="#about" onclick="closeMobileMenu()" data-i18n="nav_about">Hakkımda</a>
+      <a href="#experience" onclick="closeMobileMenu()" data-i18n="nav_experience">Deneyim</a>
+      <a href="#education" onclick="closeMobileMenu()" data-i18n="nav_education">Eğitim</a>
+      <a href="#projects" onclick="closeMobileMenu()" data-i18n="nav_projects">Projeler</a>
+      <a href="#skills" onclick="closeMobileMenu()" data-i18n="nav_skills">Yetenekler</a>
+      <a href="#certifications" onclick="closeMobileMenu()" data-i18n="nav_certifications">Sertifikalar</a>
+      <a href="#references" onclick="closeMobileMenu()" data-i18n="nav_references">Referanslar</a>
+    </div>
+  </header>
+
+  <main id="hero">
+    <!-- ===== HERO SECTION ===== -->
+    <section class="hero">
+      <div class="section-container hero-grid">
+        <div>
+          <p class="label-overline" data-testid="hero-overline" data-i18n="hero_overline">Mekatronik Mühendisi · Portfolyo & CV</p>
+          <h1 data-testid="hero-name">Selim Taşdemir</h1>
+          <p class="hero-tagline" data-testid="hero-tagline" data-i18n="hero_tagline">Eğitim hayatım boyunca araştırma, öz motivasyon ve girişimcilik konularında kendimi geliştirdim. Merak ve öğrenme arzusu ile sorumluluk almaktan çekinmeyen bir yapıya sahibim.</p>
+          <div class="hero-actions">
+            <a href="#projects">
+              <button type="button" class="btn-outline" data-testid="hero-cta-projects">
+                <span data-i18n="hero_cta_projects">Projeleri Gör</span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><polyline points="19 12 12 19 5 12"/></svg>
+              </button>
+            </a>
+          </div>
+        </div>
+
+        <div class="hero-card" data-testid="hero-card">
+          <img src="profil.png" alt="Selim Taşdemir" class="avatar" data-testid="profile-photo" loading="lazy" data-img-error="avatar-placeholder" />
+          <p class="label-overline" data-i18n="hero_title">Mekatronik Mühendisi</p>
+          <div class="contact-grid">
+            <div class="contact-row">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+              <span>selimtasdemir2022@gmail.com</span>
+            </div>
+            <div class="contact-row">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              <span>+90 (531) 666-3969</span>
+            </div>
+            <div class="contact-row">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+              <span data-i18n="hero_location">Merkez, Karabük, Türkiye</span>
+            </div>
+            <div class="contact-row">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+              <span>linkedin.com/in/selimtasdemir</span>
+            </div>
+            <div class="contact-row">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg>
+              <span>github.com/selimttasdemir</span>
+            </div>
+            <div class="contact-row">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 10h18"/><path d="M7 15h.01"/><path d="M11 15h2"/></svg>
+              <span>B Sınıfı Ehliyet</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== ABOUT SECTION ===== -->
+    <section id="about">
+      <div class="section-container section-padding">
+        <div class="section-header-grid animate-in" data-animate>
+          <div>
+            <p class="label-overline">01</p>
+            <h2 class="section-title" data-i18n="section_about">Hakkımda</h2>
+          </div>
+          <p class="about-text" data-testid="about-bio" data-i18n="about_bio">Eğitim hayatım boyunca araştırma, öz motivasyon ve girişimcilik konularında kendimi geliştirdim. Katıldığım Teknofest yarışmaları ve üniversite çevremde edindiğim kişisel gelişim projeleri, teknik becerilerimi pekiştirmenin yanı sıra takım çalışması, problem çözme ve proje yönetimi gibi yetkinlikler kazanmamı sağladı. Profesyonel olarak bir teknoloji firmasında yük bırakan drone sistemleri üzerine çalışarak hem donanımsal hem de yazılımsal süreçlere aktif katkı sağladım. Bunun yanı sıra bireysel araştırmalarla IoT, yazılım geliştirme ve görüntü işleme alanlarında bilgi ve deneyim edinmeye devam ettim. İş hayatında hızlı ve efektif çözümler üretebilmek adına özverili ve istekli çalışmanın öneminin farkındayım. Merak ve öğrenme arzusu ile sorumluluk almaktan çekinmeyen bir yapıya sahibim. Her zaman gelişime açık, dikkatli ve özenli çalışmanın başarıyı getireceğine inanan biriyim.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== EXPERIENCE SECTION ===== -->
+    <section id="experience">
+      <div class="section-container section-padding">
+        <div class="section-header-grid">
+          <div>
+            <p class="label-overline">02</p>
+            <h2 class="section-title" data-i18n="section_experience">Deneyim</h2>
+          </div>
+          <div class="experience-list stagger-children" data-testid="experience-list" data-stagger>
+            <!-- Experience Card 1 -->
+            <div class="card-item" data-testid="exp-1">
+              <div class="card-header">
+                <div>
+                  <div class="card-title" data-i18n="exp_1_role">Saha Mühendisi</div>
+                  <div class="card-subtitle" data-i18n="exp_1_company">Çağçelik Demirçelik AŞ · <span data-i18n="exp_1_location">Karabük/Merkez</span></div>
+                </div>
+                <span class="card-date" data-i18n="exp_1_date">2025-06 — 2025-12</span>
+              </div>
+              <div class="card-desc" data-i18n="exp_1_desc">Demirçelik sektöründe faaliyet gösteren fabrikada üretimin son aşaması olan paketleme kısmının yönetimi gerçekleştirildi.</div>
+            </div>
+
+            <!-- Experience Card 2 -->
+            <div class="card-item" data-testid="exp-2">
+              <div class="card-header">
+                <div>
+                  <div class="card-title" data-i18n="exp_2_role">Mekatronik Öğretmeni</div>
+                  <div class="card-subtitle" data-i18n="exp_2_company">Safran Robotik Becerikli Eller · <span data-i18n="exp_2_location">Karabük/Merkez</span></div>
+                </div>
+                <span class="card-date" data-i18n="exp_2_date">2024-12 — 2025-04</span>
+              </div>
+              <div class="card-desc" data-i18n="exp_2_desc">İlkokuldan lise düzeyindeki öğrenci grubuna; algoritma, problem çözme, robotik kodlama ve Fusion 360 ile 3D tasarım dersleri verdim. Blok tabanlı kodlama, yapay zeka, Arduino ve ESP32/ESP8266 teknolojilerini kapsayan özgün eğitim müfredatları hazırlayarak aktif eğitmenlik yaptım.</div>
+            </div>
+
+            <!-- Experience Card 3 -->
+            <div class="card-item" data-testid="exp-3">
+              <div class="card-header">
+                <div>
+                  <div class="card-title" data-i18n="exp_3_role">Mekatronik Ar-Ge Mühendisi</div>
+                  <div class="card-subtitle" data-i18n="exp_3_company">Smart Defence A.Ş. · <span data-i18n="exp_3_location">İzmir/Güzelbahçe</span></div>
+                </div>
+                <span class="card-date" data-i18n="exp_3_date">2023-05 — 2024-11</span>
+              </div>
+              <div class="card-desc" data-i18n="exp_3_desc">İnsansız hava aracı arge firmasında takım liderliği görevinde iha ve yer istasyonu yazılımı, elektronik entegrasyon ve pilotaj görevi üstlenildi. Başta döner kanat olmak üzere İHA stabilitesi ve elektronik montajı; pilotaj, projeye göre anlık problemi çözebilecek şekilde Lua betiği, görüntü işleme ile nesne takibi ve haritalama, aktif Excel kullanımı, dashboard ve tabloları, sunum hazırlama, iletişim becerileri; kriz ve risk yönetimi kendime kazandırdığım önemli yetkinliklerdir.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== EDUCATION SECTION ===== -->
+    <section id="education">
+      <div class="section-container section-padding">
+        <div class="section-header-grid">
+          <div>
+            <p class="label-overline">03</p>
+            <h2 class="section-title" data-i18n="section_education">Eğitim</h2>
+          </div>
+          <div class="education-list stagger-children" data-testid="education-list" data-stagger>
+            <div class="card-item" data-testid="edu-1">
+              <div class="card-header">
+                <div>
+                  <div class="card-title">Karabük Üniversitesi</div>
+                  <div class="card-subtitle"><span data-i18n="edu_1_degree">Lisans</span> · <span data-i18n="edu_1_field">Mekatronik Mühendisliği</span></div>
+                </div>
+                <span class="card-date" data-i18n="edu_1_date">2018-10 — 2025-01</span>
+              </div>
+              <div class="card-desc">
+                <span data-i18n="edu_1_desc">Bitirme Tezi ve Projesi: CNN ile MFCC kullanarak konuşmacı tanıma ses işleme projesi yapıldı.</span>
+                <br/>
+                <a href="https://github.com/selimttasdemir/selimttasdemir/blob/main/img/CNN_Tez.pdf" target="_blank" rel="noopener noreferrer" class="project-link" style="margin-top:0.375rem">
+                  <span data-i18n="view_thesis">📄 Tez PDF'ini Gör</span>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== PROJECTS SECTION ===== -->
+    <section id="projects">
+      <div class="section-container section-padding">
+        <div class="section-header-grid" style="margin-bottom: 2.5rem;">
+          <div>
+            <p class="label-overline">04</p>
+            <h2 class="section-title" data-i18n="section_projects">Projeler</h2>
+          </div>
+          <p class="about-text" data-i18n="projects_subtitle" style="font-size:0.9375rem;color:var(--muted-foreground);margin-top:0">Mekatronik, robotik ve gömülü sistemler odaklı seçili çalışmalar.</p>
+        </div>
+
+        <div class="projects-grid stagger-children" data-testid="projects-grid" data-stagger>          <!-- Project 1: İSG Ekipman Denetim (Öne Çıkan) -->
+          <article class="project-card" data-testid="project-1">
+            <div class="project-cover">
+              <img src="isg_guvenlik.gif" alt="YOLO ile İSG Ekipmanı Denetim Uygulaması" class="project-cover-img" loading="lazy" data-img-error="project-placeholder" />
+              <span class="project-featured-badge" data-i18n="featured">Öne Çıkan</span>
+            </div>
+            <div class="project-body">
+              <div class="project-meta">
+                <span class="project-year">2025</span>
+              </div>
+              <h3 class="project-title" data-i18n="proj_7_title">YOLO ile İSG Ekipmanı Denetim Uygulaması</h3>
+              <p class="project-summary" data-i18n="proj_7_summary">Şantiyelerde ve riskli çalışma alanlarında baret takmayan personeli gerçek zamanlı tespit eden yapay zeka sistemi.</p>
+              <p class="project-desc" data-i18n="proj_7_desc">Derin Öğrenme (YOLO) ile baret takan ve takmayan personelin gerçek zamanlı ve yüksek doğruluk oranıyla tespiti. Kamera görüntüleri üzerinden baret ihlallerinin anlık ve kesintisiz takibi. İhlal durumlarında ilgili birimlere otomatik bildirim gönderen uyarı mekanizması.</p>
+              <div class="project-tags">
+                <span class="project-tag">YOLO</span>
+                <span class="project-tag">Derin Öğrenme</span>
+                <span class="project-tag">İSG</span>
+                <span class="project-tag">Görüntü İşleme</span>
+                <span class="project-tag">İkaz Sistemi</span>
+              </div>
+              <a href="https://github.com/selimttasdemir/baret-isg" target="_blank" rel="noopener noreferrer" class="project-link" data-testid="view-project-1">
+                <span data-i18n="view_project">Projeyi Gör</span>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+              </a>
+            </div>
+          </article>
+
+          <!-- Project 2: Makine Parça Tanıma (Öne Çıkan) -->
+          <article class="project-card" data-testid="project-2">
+            <div class="project-cover">
+              <img src="makine_parca_tanima.gif" alt="Görüntü İşleme ile Makine Elemanlarının Algılanması" class="project-cover-img" loading="lazy" data-img-error="project-placeholder" />
+              <span class="project-featured-badge" data-i18n="featured">Öne Çıkan</span>
+            </div>
+            <div class="project-body">
+              <div class="project-meta">
+                <span class="project-year">2025</span>
+              </div>
+              <h3 class="project-title" data-i18n="proj_5_title">Görüntü İşleme ile Makine Elemanlarının Algılanması</h3>
+              <p class="project-summary" data-i18n="proj_5_summary">Görüntü işleme ile makine elemanları tespiti ve sınıflandırması.</p>
+              <p class="project-desc" data-i18n="proj_5_desc">Görüntü işleme, derin öğrenme ve YOLO tabanlı nesne tespiti ile makine parçalarını tanıyan proje. Sistem; tek görsel analizi, YOLO ile çoklu nesne tespiti, ResNet50 sınıflandırma, feature matching, hibrit tanıma ve ESP32Cam üzerinden canlı kamera desteği sunar.</p>
+              <div class="project-tags">
+                <span class="project-tag">YOLOv8</span>
+                <span class="project-tag">ESP32Cam</span>
+                <span class="project-tag">Python</span>
+                <span class="project-tag">Deep Learning</span>
+              </div>
+              <a href="https://github.com/selimttasdemir/makine_parca_tanima" target="_blank" rel="noopener noreferrer" class="project-link" data-testid="view-project-2">
+                <span data-i18n="view_project">Projeyi Gör</span>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+              </a>
+            </div>
+          </article>
+
+          <!-- Project 3: Otopark Plaka Tanıma -->
+          <article class="project-card" data-testid="project-3">
+            <div class="project-cover">
+              <img src="plaka_tanima.gif" alt="Görüntü İşlemeyle Otopark Plaka Tanıma ve Giriş/Çıkış Takip Sistemi" class="project-cover-img" loading="lazy" data-img-error="project-placeholder" />
+            </div>
+            <div class="project-body">
+              <div class="project-meta">
+                <span class="project-year">2024</span>
+              </div>
+              <h3 class="project-title" data-i18n="proj_6_title">Görüntü İşlemeyle Otopark Plaka Tanıma ve Giriş/Çıkış Takip Sistemi</h3>
+              <p class="project-summary" data-i18n="proj_6_summary">Görüntü işleme ve OCR ile plaka tanıma, SQL kaydı ile giriş çıkış takibi.</p>
+              <p class="project-desc" data-i18n="proj_6_desc">Bu proje; bir otopark giriş/çıkış kontrol sistemi geliştirerek araçların plakalarını tanır, giriş ve çıkış saatlerini kaydeder ve otopark doluluk durumunu takip eder. Python ile geliştirilmiştir ve bilgisayarda çalışan bir arayüz içerir.</p>
+              <div class="project-tags">
+                <span class="project-tag">OCR</span>
+                <span class="project-tag">OpenCV</span>
+                <span class="project-tag">SQLite</span>
+                <span class="project-tag">Python</span>
+              </div>
+              <a href="https://github.com/selimttasdemir/PlakaTanimaOtoparkKontrolSistemi" target="_blank" rel="noopener noreferrer" class="project-link" data-testid="view-project-3">
+                <span data-i18n="view_project">Projeyi Gör</span>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+              </a>
+            </div>
+          </article>
+
+          <!-- Project 4: Hava Savunma Sistemi -->
+          <article class="project-card" data-testid="project-4">
+            <div class="project-cover">
+              <img src="havaSavunma.gif" alt="Hava Savunma Sistemi Projesi" class="project-cover-img" loading="lazy" data-img-error="project-placeholder" />
+            </div>
+            <div class="project-body">
+              <div class="project-meta">
+                <span class="project-year">2024</span>
+              </div>
+              <h3 class="project-title" data-i18n="proj_3_title">Hava Savunma Sistemi Projesi</h3>
+              <p class="project-summary" data-i18n="proj_3_summary">YOLOv8 ile görüntü işleme ve elektromanyetik silah entegrasyonu.</p>
+              <p class="project-desc" data-i18n="proj_3_desc">YOLOv8 ile görüntü işleme sistemi geliştirildi; görüntü işleme ile nesne tespiti yapıldı ve arduino sistemi ile tespit edilen nesnenin takibi sağlandı. C# ile arayüz yazılımı oluşturuldu. Elektromanyetik silah sistemi entegrasyonu sağlandı.</p>
+              <div class="project-tags">
+                <span class="project-tag">YOLOv8</span>
+                <span class="project-tag">C#</span>
+                <span class="project-tag">Arduino</span>
+                <span class="project-tag">Görüntü İşleme</span>
+              </div>
+              <a href="https://github.com/selimttasdemir/selimttasdemir/blob/main/img/havaSavunma.gif" target="_blank" rel="noopener noreferrer" class="project-link" data-testid="view-project-4">
+                <span data-i18n="view_project">Projeyi Gör</span>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+              </a>
+            </div>
+          </article>
+
+          <!-- Project 5: Sabit Kanat İHA -->
+          <article class="project-card" data-testid="project-5">
+            <div class="project-cover">
+              <img src="drone.jpg" alt="Sabit Kanat İHA Projesi" class="project-cover-img" loading="lazy" data-img-error="project-placeholder" />
+            </div>
+            <div class="project-body">
+              <div class="project-meta">
+                <span class="project-year">2024</span>
+              </div>
+              <h3 class="project-title" data-i18n="proj_1_title">Sabit Kanat İnsansız Hava Aracı Projesi</h3>
+              <p class="project-summary" data-i18n="proj_1_summary">Sabit kanat İHA için flight controller yazılımı, elektronik entegrasyon ve takım kaptanlığı.</p>
+              <p class="project-desc" data-i18n="proj_1_desc">Python ve Lua ile flight controller yazılımı geliştirildi. Görüntü işleme ile nesne takibi ve hedefe bırakma yazılımı. C# ile yer istasyonu arayüz yazılımı oluşturuldu. Genel elektronik entegrasyon sağlandı ve takım kaptanlığı görevi üstlenildi.</p>
+              <div class="project-tags">
+                <span class="project-tag">Python</span>
+                <span class="project-tag">Lua</span>
+                <span class="project-tag">C#</span>
+                <span class="project-tag">İHA</span>
+                <span class="project-tag">Görüntü İşleme</span>
+              </div>
+              <a href="https://github.com/selimttasdemir" target="_blank" rel="noopener noreferrer" class="project-link" data-testid="view-project-5">
+                <span data-i18n="view_project">Projeyi Gör</span>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+              </a>
+            </div>
+          </article>
+
+          <!-- Project 6: Model Uydu -->
+          <article class="project-card" data-testid="project-6">
+            <div class="project-cover">
+              <img src="uydu.jpg" alt="Model Uydu Projesi" class="project-cover-img" loading="lazy" data-img-error="project-placeholder" />
+            </div>
+            <div class="project-body">
+              <div class="project-meta">
+                <span class="project-year">2024</span>
+              </div>
+              <h3 class="project-title" data-i18n="proj_2_title">Model Uydu Projesi</h3>
+              <p class="project-summary" data-i18n="proj_2_summary">Teensy 4.1 ile flight controller ve C# ile arayüz yazılımı.</p>
+              <p class="project-desc" data-i18n="proj_2_desc">Teensy 4.1 mikro işlemcisi ile flight controller yazılımı geliştirildi. C# ile arayüz yazılımı oluşturuldu. PCB tasarımı gerçekleştirildi.</p>
+              <div class="project-tags">
+                <span class="project-tag">Teensy</span>
+                <span class="project-tag">C#</span>
+                <span class="project-tag">PCB</span>
+                <span class="project-tag">Flight Controller</span>
+              </div>
+              <a href="https://github.com/selimttasdemir/selimttasdemir/blob/main/img/uydu.jpg" target="_blank" rel="noopener noreferrer" class="project-link" data-testid="view-project-6">
+                <span data-i18n="view_project">Projeyi Gör</span>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+              </a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== SKILLS SECTION ===== -->
+    <section id="skills">
+      <div class="section-container section-padding">
+        <div class="section-header-grid">
+          <div>
+            <p class="label-overline">05</p>
+            <h2 class="section-title" data-i18n="section_skills">Yetenekler</h2>
+          </div>
+          <div class="skills-list stagger-children" data-testid="skills-list" data-stagger>
+            <!-- Programming -->
+            <div>
+              <p class="skill-category-label" data-i18n="skill_cat_programming">Programlama</p>
+              <div class="skill-grid">
+                <div class="skill-row"><div class="skill-label-row"><span class="skill-name">Python</span><span class="skill-level-text">80%</span></div><div class="skill-bar"><div class="skill-bar-fill" style="width:80%"></div></div></div>
+                <div class="skill-row"><div class="skill-label-row"><span class="skill-name">C / C++</span><span class="skill-level-text">65%</span></div><div class="skill-bar"><div class="skill-bar-fill" style="width:65%"></div></div></div>
+                <div class="skill-row"><div class="skill-label-row"><span class="skill-name">C#</span><span class="skill-level-text">70%</span></div><div class="skill-bar"><div class="skill-bar-fill" style="width:70%"></div></div></div>
+                <div class="skill-row"><div class="skill-label-row"><span class="skill-name">.Net</span><span class="skill-level-text">75%</span></div><div class="skill-bar"><div class="skill-bar-fill" style="width:75%"></div></div></div>
+                <div class="skill-row"><div class="skill-label-row"><span class="skill-name">HTML / CSS / JS</span><span class="skill-level-text">80%</span></div><div class="skill-bar"><div class="skill-bar-fill" style="width:80%"></div></div></div>
+              </div>
+            </div>
+
+            <!-- AI/ML -->
+            <div>
+              <p class="skill-category-label" data-i18n="skill_cat_ai">Yapay Zeka</p>
+              <div class="skill-grid">
+                <div class="skill-row"><div class="skill-label-row"><span class="skill-name">TensorFlow</span><span class="skill-level-text">75%</span></div><div class="skill-bar"><div class="skill-bar-fill" style="width:75%"></div></div></div>
+                <div class="skill-row"><div class="skill-label-row"><span class="skill-name">PyTorch</span><span class="skill-level-text">75%</span></div><div class="skill-bar"><div class="skill-bar-fill" style="width:75%"></div></div></div>
+                <div class="skill-row"><div class="skill-label-row"><span class="skill-name">OpenCV</span><span class="skill-level-text">70%</span></div><div class="skill-bar"><div class="skill-bar-fill" style="width:70%"></div></div></div>
+                <div class="skill-row"><div class="skill-label-row"><span class="skill-name">ML / DL</span><span class="skill-level-text">70%</span></div><div class="skill-bar"><div class="skill-bar-fill" style="width:70%"></div></div></div>
+              </div>
+            </div>
+
+            <!-- Embedded -->
+            <div>
+              <p class="skill-category-label" data-i18n="skill_cat_embedded">Gömülü Sistemler</p>
+              <div class="skill-grid">
+                <div class="skill-row"><div class="skill-label-row"><span class="skill-name">Arduino</span><span class="skill-level-text">90%</span></div><div class="skill-bar"><div class="skill-bar-fill" style="width:90%"></div></div></div>
+                <div class="skill-row"><div class="skill-label-row"><span class="skill-name">STM32</span><span class="skill-level-text">50%</span></div><div class="skill-bar"><div class="skill-bar-fill" style="width:50%"></div></div></div>
+                <div class="skill-row"><div class="skill-label-row"><span class="skill-name">ESP32</span><span class="skill-level-text">85%</span></div><div class="skill-bar"><div class="skill-bar-fill" style="width:85%"></div></div></div>
+                <div class="skill-row"><div class="skill-label-row"><span class="skill-name">Teensy</span><span class="skill-level-text">70%</span></div><div class="skill-bar"><div class="skill-bar-fill" style="width:70%"></div></div></div>
+                <div class="skill-row"><div class="skill-label-row"><span class="skill-name">Jetson / Raspberry Pi</span><span class="skill-level-text">80%</span></div><div class="skill-bar"><div class="skill-bar-fill" style="width:80%"></div></div></div>
+              </div>
+            </div>
+
+            <!-- CAD / Design -->
+            <div>
+              <p class="skill-category-label" data-i18n="skill_cat_cad">CAD / Tasarım</p>
+              <div class="skill-grid">
+                <div class="skill-row"><div class="skill-label-row"><span class="skill-name">SolidWorks</span><span class="skill-level-text">50%</span></div><div class="skill-bar"><div class="skill-bar-fill" style="width:50%"></div></div></div>
+                <div class="skill-row"><div class="skill-label-row"><span class="skill-name">Fusion 360</span><span class="skill-level-text">50%</span></div><div class="skill-bar"><div class="skill-bar-fill" style="width:50%"></div></div></div>
+                <div class="skill-row"><div class="skill-label-row"><span class="skill-name">3D Printer (FDM/SLA)</span><span class="skill-level-text">95%</span></div><div class="skill-bar"><div class="skill-bar-fill" style="width:95%"></div></div></div>
+              </div>
+            </div>
+
+            <!-- Electronics -->
+            <div>
+              <p class="skill-category-label" data-i18n="skill_cat_electronics">Elektronik</p>
+              <div class="skill-grid">
+                <div class="skill-row"><div class="skill-label-row"><span class="skill-name">Proteus</span><span class="skill-level-text">60%</span></div><div class="skill-bar"><div class="skill-bar-fill" style="width:60%"></div></div></div>
+                <div class="skill-row"><div class="skill-label-row"><span class="skill-name">LT Spice</span><span class="skill-level-text">60%</span></div><div class="skill-bar"><div class="skill-bar-fill" style="width:60%"></div></div></div>
+                <div class="skill-row"><div class="skill-label-row"><span class="skill-name">Excel</span><span class="skill-level-text">85%</span></div><div class="skill-bar"><div class="skill-bar-fill" style="width:85%"></div></div></div>
+              </div>
+            </div>
+
+            <!-- Languages -->
+            <div>
+              <p class="skill-category-label" data-i18n="skill_cat_languages">Diller</p>
+              <div class="skill-grid">
+                <div class="skill-row"><div class="skill-label-row"><span class="skill-name" data-i18n="lang_2_name">İngilizce</span><span class="skill-level-text" data-i18n="lang_2_level">A2 - Temel</span></div><div class="skill-bar"><div class="skill-bar-fill" style="width:35%"></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== CERTIFICATIONS ===== -->
+    <section id="certifications">
+      <div class="section-container section-padding">
+        <div class="section-header-grid" style="margin-bottom: 2.5rem;">
+          <div>
+            <p class="label-overline">06</p>
+            <h2 class="section-title" data-i18n="section_certifications">Sertifikalar</h2>
+          </div>
+        </div>
+
+        <div class="cert-grid stagger-children" data-testid="certifications-list" data-stagger>
+          <div class="cert-card" data-testid="cert-1">
+            <img src="pilotlukIHA1.JPEG" alt="İHA 1 Ticari Pilotluk Lisansı" class="cert-card-img" loading="lazy" data-img-error="hide" />
+            <div class="cert-card-body">
+              <div class="cert-card-name" data-i18n="cert_1_name">İHA 1 Ticari Pilotluk Lisansı</div>
+              <div class="cert-card-issuer" data-i18n="cert_1_issuer">Sivil Havacılık Genel Müdürlüğü</div>
+              <div class="cert-card-date">2024-08</div>
+            </div>
+          </div>
+
+          <div class="cert-card" data-testid="cert-2">
+            <img src="C%23_sertfika.png" alt="C# Sertifikası" class="cert-card-img" loading="lazy" data-img-error="hide" />
+            <div class="cert-card-body">
+              <div class="cert-card-name" data-i18n="cert_6_name">C# Sertifikası</div>
+              <div class="cert-card-issuer" data-i18n="cert_6_issuer">Online Eğitim Platformu</div>
+              <div class="cert-card-date">2024</div>
+            </div>
+          </div>
+
+          <div class="cert-card" data-testid="cert-3">
+            <img src="CS_50.png" alt="CS50 Sertifikası" class="cert-card-img" loading="lazy" data-img-error="hide" />
+            <div class="cert-card-body">
+              <div class="cert-card-name" data-i18n="cert_7_name">CS50 Bilgisayar Bilimleri Sertifikası</div>
+              <div class="cert-card-issuer" data-i18n="cert_7_issuer">Harvard Üniversitesi (edX)</div>
+              <div class="cert-card-date">2023</div>
+            </div>
+          </div>
+
+          <div class="cert-card" data-testid="cert-4">
+            <img src="herkesicinyz.png" alt="Herkes İçin Yapay Zeka Sertifikası" class="cert-card-img" loading="lazy" data-img-error="hide" />
+            <div class="cert-card-body">
+              <div class="cert-card-name" data-i18n="cert_8_name">Herkes İçin Yapay Zeka Sertifikası</div>
+              <div class="cert-card-issuer" data-i18n="cert_8_issuer">Online Eğitim Platformu</div>
+              <div class="cert-card-date">2023</div>
+            </div>
+          </div>
+
+          <div class="cert-card" data-testid="cert-5">
+            <img src="fuzzyLojikBulanikMantik.jpg" alt="Fuzzy Logic / Bulanık Mantık Sertifikası" class="cert-card-img" loading="lazy" data-img-error="hide" />
+            <div class="cert-card-body">
+              <div class="cert-card-name" data-i18n="cert_9_name">Fuzzy Logic (Bulanık Mantık) Sertifikası</div>
+              <div class="cert-card-issuer" data-i18n="cert_9_issuer">Online Eğitim Platformu</div>
+              <div class="cert-card-date">2023</div>
+            </div>
+          </div>
+
+          <div class="cert-card" data-testid="cert-6">
+            <img src="yolov4.png" alt="YOLOv4 Sertifikası" class="cert-card-img" loading="lazy" data-img-error="hide" />
+            <div class="cert-card-body">
+              <div class="cert-card-name" data-i18n="cert_10_name">YOLO (You Only Look Once) Derin Öğrenme Sertifikası</div>
+              <div class="cert-card-issuer" data-i18n="cert_10_issuer">Online Eğitim Platformu</div>
+              <div class="cert-card-date">2023</div>
+            </div>
+          </div>
+
+          <div class="cert-card" data-testid="cert-7">
+            <div class="cert-card-body" style="padding:1.5rem">
+              <div class="cert-card-name" data-i18n="cert_2_name">Uygulamalı Web 3.0 ve NFT Eğitimi</div>
+              <div class="cert-card-issuer" data-i18n="cert_2_issuer">Gazi Üniversitesi</div>
+              <div class="cert-card-date">2022-05</div>
+            </div>
+          </div>
+
+          <div class="cert-card" data-testid="cert-8">
+            <div class="cert-card-body" style="padding:1.5rem">
+              <div class="cert-card-name" data-i18n="cert_3_name">Hava Savunma Sistemleri Yarışması</div>
+              <div class="cert-card-issuer">Teknofest</div>
+            </div>
+          </div>
+
+          <div class="cert-card" data-testid="cert-9">
+            <div class="cert-card-body" style="padding:1.5rem">
+              <div class="cert-card-name" data-i18n="cert_4_name">Model Uydu Yarışması</div>
+              <div class="cert-card-issuer">Teknofest</div>
+            </div>
+          </div>
+
+          <div class="cert-card" data-testid="cert-10">
+            <div class="cert-card-body" style="padding:1.5rem">
+              <div class="cert-card-name" data-i18n="cert_5_name">İnsansız Hava Araçları Yarışması</div>
+              <div class="cert-card-issuer">Teknofest</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== REFERENCES SECTION ===== -->
+    <section id="references">
+      <div class="section-container section-padding">
+        <div class="section-header-grid" style="margin-bottom: 2.5rem;">
+          <div>
+            <p class="label-overline">07</p>
+            <h2 class="section-title" data-i18n="section_references">Referanslar</h2>
+          </div>
+          <p class="about-text" data-i18n="references_subtitle" style="font-size:0.9375rem;color:var(--muted-foreground);margin-top:0">İş ve staj süreçlerinde birlikte çalıştığım referanslarım.</p>
+        </div>
+
+        <div class="ref-grid stagger-children" data-testid="references-list" data-stagger>
+          <div class="ref-card" data-testid="ref-1">
+            <div class="ref-name">Doç. Dr. Ferhat Atasoy</div>
+            <div class="ref-title" data-i18n="ref_1_title">Karabük Üniversitesi, Bilgisayar Mühendisliği Öğretim Üyesi</div>
+            <a href="tel:+905555209757" class="ref-phone">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              +90 555 520 97 57
+            </a>
+          </div>
+
+          <div class="ref-card" data-testid="ref-2">
+            <div class="ref-name">Doç. Dr. Nesrin Atasoy</div>
+            <div class="ref-title" data-i18n="ref_2_title">Karabük Üniversitesi, Bilgisayar Mühendisliği Bölüm Başkanı</div>
+            <a href="tel:+905555209757" class="ref-phone">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              +90 555 520 97 57
+            </a>
+          </div>
+
+          <div class="ref-card" data-testid="ref-3">
+            <div class="ref-name">Hüseyin Bilicioğlu</div>
+            <div class="ref-title" data-i18n="ref_3_title">Gençlik Hizmetleri Müdürü</div>
+            <a href="tel:+905053760326" class="ref-phone">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              +90 505 376 03 26
+            </a>
+          </div>
+
+          <div class="ref-card" data-testid="ref-4">
+            <div class="ref-name">Muhammed Emin Akın</div>
+            <div class="ref-title" data-i18n="ref_4_title">Kardemir Makine Mühendisi</div>
+            <a href="tel:+905078842353" class="ref-phone">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              +90 507 884 23 53
+            </a>
+          </div>
+
+          <div class="ref-card" data-testid="ref-5">
+            <div class="ref-name">Mesut Yılmaz</div>
+            <div class="ref-title" data-i18n="ref_5_title">Karabük Üniversitesi, Makine Mühendisliği Arş Görevlisi</div>
+            <a href="tel:+905446068893" class="ref-phone">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              +90 537 350 91 72
+            </a>
+          </div>
+
+          <div class="ref-card" data-testid="ref-6">
+            <div class="ref-name">Yasin Bezirci</div>
+            <div class="ref-title" data-i18n="ref_6_title">Çağçelik Bakım ve İşletme Müdürü</div>
+            <a href="tel:+905493301980" class="ref-phone">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              +90 549 330 19 80
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+  </main>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div class="section-container footer-inner">
+      <p class="footer-copy">© 2026 Selim Taşdemir · <span class="label-mono">Portfolio · CV</span></p>
+      <div class="footer-nav">
+        <a href="#about" data-i18n="nav_about">Hakkımda</a>
+        <a href="#projects" data-i18n="nav_projects">Projeler</a>
+        <a href="#references" data-i18n="nav_references">Referanslar</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // ===== TRANSLATION DICTIONARY =====
+    const translations = {
+      tr: {
+        nav_about: "Hakkımda",
+        nav_experience: "Deneyim",
+        nav_education: "Eğitim",
+        nav_skills: "Yetenekler",
+        nav_projects: "Projeler",
+        nav_references: "Referanslar",
+        nav_certifications: "Sertifikalar",
+        hero_overline: "Mekatronik Mühendisi · Portfolyo & CV",
+        hero_tagline: "Eğitim hayatım boyunca araştırma, öz motivasyon ve girişimcilik konularında kendimi geliştirdim. Merak ve öğrenme arzusu ile sorumluluk almaktan çekinmeyen bir yapıya sahibim.",
+        hero_cta_projects: "Projeleri Gör",
+        hero_title: "Mekatronik Mühendisi",
+        hero_location: "Merkez, Karabük, Türkiye",
+        section_about: "Hakkımda",
+        section_experience: "Deneyim",
+        section_education: "Eğitim",
+        section_skills: "Yetenekler",
+        section_certifications: "Sertifikalar",
+        section_projects: "Projeler",
+        section_references: "Referanslar",
+        references_subtitle: "İş ve staj süreçlerinde birlikte çalıştığım referanslarım.",
+        ref_1_title: "Karabük Üniversitesi, Bilgisayar Mühendisliği Öğretim Üyesi",
+        ref_2_title: "Karabük Üniversitesi, Bilgisayar Mühendisliği Bölüm Başkanı",
+        ref_3_title: "Gençlik Hizmetleri Müdürü",
+        ref_4_title: "Kardemir Makine Mühendisi",
+        ref_5_title: "Karabük Üniversitesi, Makine Mühendisliği Arş Görevlisi",
+        ref_6_title: "Çağçelik Bakım ve İşletme Müdürü",
+        view_project: "Projeyi Gör",
+        featured: "Öne Çıkan",
+        projects_subtitle: "Mekatronik, robotik ve gömülü sistemler odaklı seçili çalışmalar.",
+
+        about_bio: "Eğitim hayatım boyunca araştırma, öz motivasyon ve girişimcilik konularında kendimi geliştirdim. Katıldığım Teknofest yarışmaları ve üniversite çevremde edindiğim kişisel gelişim projeleri, teknik becerilerimi pekiştirmenin yanı sıra takım çalışması, problem çözme ve proje yönetimi gibi yetkinlikler kazanmamı sağladı. Profesyonel olarak bir teknoloji firmasında yük bırakan drone sistemleri üzerine çalışarak hem donanımsal hem de yazılımsal süreçlere aktif katkı sağladım. Bunun yanı sıra bireysel araştırmalarla IoT, yazılım geliştirme ve görüntü işleme alanlarında bilgi ve deneyim edinmeye devam ettim. İş hayatında hızlı ve efektif çözümler üretebilmek adına özverili ve istekli çalışmanın öneminin farkındayım. Merak ve öğrenme arzusu ile sorumluluk almaktan çekinmeyen bir yapıya sahibim. Her zaman gelişime açık, dikkatli ve özenli çalışmanın başarıyı getireceğine inanan biriyim.",
+        exp_1_role: "Saha Mühendisi",
+        exp_1_company: "Çağçelik Demirçelik AŞ",
+        exp_1_location: "Karabük/Merkez",
+        exp_1_date: "2025-06 — 2025-12",
+        exp_1_desc: "Demirçelik sektöründe faaliyet gösteren fabrikada üretimin son aşaması olan paketleme kısmının yönetimi gerçekleştirildi.",
+        exp_2_role: "Mekatronik Öğretmeni",
+        exp_2_company: "Safran Robotik Becerikli Eller",
+        exp_2_location: "Karabük/Merkez",
+        exp_2_date: "2024-12 — 2025-04",
+        exp_2_desc: "İlkokuldan lise düzeyindeki öğrenci grubuna; algoritma, problem çözme, robotik kodlama ve Fusion 360 ile 3D tasarım dersleri verdim. Blok tabanlı kodlama, yapay zeka, Arduino ve ESP32/ESP8266 teknolojilerini kapsayan özgün eğitim müfredatları hazırlayarak aktif eğitmenlik yaptım.",
+        exp_3_role: "Mekatronik Ar-Ge Mühendisi",
+        exp_3_company: "Smart Defence A.Ş.",
+        exp_3_location: "İzmir/Güzelbahçe",
+        exp_3_date: "2023-05 — 2024-11",
+        exp_3_desc: "İnsansız hava aracı arge firmasında takım liderliği görevinde iha ve yer istasyonu yazılımı, elektronik entegrasyon ve pilotaj görevi üstlenildi. Başta döner kanat olmak üzere İHA stabilitesi ve elektronik montajı; pilotaj, projeye göre anlık problemi çözebilecek şekilde Lua betiği, görüntü işleme ile nesne takibi ve haritalama, aktif Excel kullanımı, dashboard ve tabloları, sunum hazırlama, iletişim becerileri; kriz ve risk yönetimi kendime kazandırdığım önemli yetkinliklerdir.",
+        edu_1_degree: "Lisans",
+        edu_1_field: "Mekatronik Mühendisliği",
+        edu_1_date: "2018-10 — 2025-01",
+        edu_1_desc: "Bitirme Tezi ve Projesi: CNN ile MFCC kullanarak konuşmacı tanıma ses işleme projesi yapıldı.",
+        view_thesis: "📄 Tez PDF'ini Gör",
+        skill_cat_programming: "Programlama",
+        skill_cat_ai: "Yapay Zeka",
+        skill_cat_embedded: "Gömülü Sistemler",
+        skill_cat_cad: "CAD / Tasarım",
+        skill_cat_electronics: "Elektronik",
+        skill_cat_languages: "Diller",
+        cert_1_name: "İHA 1 Ticari Pilotluk Lisansı",
+        cert_1_issuer: "Sivil Havacılık Genel Müdürlüğü",
+        cert_2_name: "Uygulamalı Web 3.0 ve NFT Eğitimi",
+        cert_2_issuer: "Gazi Üniversitesi",
+        cert_3_name: "Hava Savunma Sistemleri Yarışması",
+        cert_4_name: "Model Uydu Yarışması",
+        cert_5_name: "İnsansız Hava Araçları Yarışması",
+        cert_6_name: "C# Sertifikası",
+        cert_6_issuer: "Online Eğitim Platformu",
+        cert_7_name: "CS50 Bilgisayar Bilimleri Sertifikası",
+        cert_7_issuer: "Harvard Üniversitesi (edX)",
+        cert_8_name: "Herkes İçin Yapay Zeka Sertifikası",
+        cert_8_issuer: "Online Eğitim Platformu",
+        cert_9_name: "Fuzzy Logic (Bulanık Mantık) Sertifikası",
+        cert_9_issuer: "Online Eğitim Platformu",
+        cert_10_name: "YOLO (You Only Look Once) Derin Öğrenme Sertifikası",
+        cert_10_issuer: "Online Eğitim Platformu",
+        lang_1_name: "Türkçe",
+        lang_1_level: "Ana dil",
+        lang_2_name: "İngilizce",
+        lang_2_level: "A2 - Temel",
+
+        proj_1_title: "Sabit Kanat İnsansız Hava Aracı Projesi",
+        proj_1_summary: "Sabit kanat İHA için flight controller yazılımı, elektronik entegrasyon ve takım kaptanlığı.",
+        proj_1_desc: "Python ve Lua ile flight controller yazılımı geliştirildi. Görüntü işleme ile nesne takibi ve hedefe bırakma yazılımı. C# ile yer istasyonu arayüz yazılımı oluşturuldu. Genel elektronik entegrasyon sağlandı ve takım kaptanlığı görevi üstlenildi.",
+        proj_2_title: "Model Uydu Projesi",
+        proj_2_summary: "Teensy 4.1 ile flight controller ve C# ile arayüz yazılımı.",
+        proj_2_desc: "Teensy 4.1 mikro işlemcisi ile flight controller yazılımı geliştirildi. C# ile arayüz yazılımı oluşturuldu. PCB tasarımı gerçekleştirildi.",
+        proj_3_title: "Hava Savunma Sistemi Projesi",
+        proj_3_summary: "YOLOv8 ile görüntü işleme ve elektromanyetik silah entegrasyonu.",
+        proj_3_desc: "YOLOv8 ile görüntü işleme sistemi geliştirildi; görüntü işleme ile nesne tespiti yapıldı ve arduino sistemi ile tespit edilen nesnenin takibi sağlandı. C# ile arayüz yazılımı oluşturuldu. Elektromanyetik silah sistemi entegrasyonu sağlandı.",
+        proj_5_title: "Görüntü İşleme ile Makine Elemanlarının Algılanması",
+        proj_5_summary: "Görüntü işleme ile makine elemanları tespiti ve sınıflandırması.",
+        proj_5_desc: "Görüntü işleme, derin öğrenme ve YOLO tabanlı nesne tespiti ile makine parçalarını tanıyan proje. Sistem; tek görsel analizi, YOLO ile çoklu nesne tespiti, ResNet50 sınıflandırma, feature matching, hibrit tanıma ve ESP32Cam üzerinden canlı kamera desteği sunar.",
+        proj_6_title: "Görüntü İşlemeyle Otopark Plaka Tanıma ve Giriş/Çıkış Takip Sistemi",
+        proj_6_summary: "Görüntü işleme ve OCR ile plaka tanıma, SQL kaydı ile giriş çıkış takibi.",
+        proj_6_desc: "Bu proje; bir otopark giriş/çıkış kontrol sistemi geliştirerek araçların plakalarını tanır, giriş ve çıkış saatlerini kaydeder ve otopark doluluk durumunu takip eder. Python ile geliştirilmiştir ve bilgisayarda çalışan bir arayüz içerir.",
+        proj_7_title: "YOLO ile İSG Ekipmanı Denetim Uygulaması",
+        proj_7_summary: "Şantiyelerde ve riskli çalışma alanlarında baret takmayan personeli gerçek zamanlı tespit eden yapay zeka sistemi.",
+        proj_7_desc: "Derin Öğrenme (YOLO) ile baret takan ve takmayan personelin gerçek zamanlı ve yüksek doğruluk oranıyla tespiti. Kamera görüntüleri üzerinden baret ihlallerinin anlık ve kesintisiz takibi. İhlal durumlarında ilgili birimlere otomatik bildirim gönderen uyarı mekanizması.",
+      },
+      en: {
+        nav_about: "About",
+        nav_experience: "Experience",
+        nav_education: "Education",
+        nav_skills: "Skills",
+        nav_projects: "Projects",
+        nav_references: "References",
+        nav_certifications: "Certifications",
+        hero_overline: "Mechatronics Engineer · Portfolio & CV",
+        hero_tagline: "Throughout my education, I developed myself in research, self-motivation and entrepreneurship. I have a personality that is not afraid to take responsibility with curiosity and desire to learn.",
+        hero_cta_projects: "View Projects",
+        hero_title: "Mechatronics Engineer",
+        hero_location: "Merkez, Karabük, Türkiye",
+        section_about: "About",
+        section_experience: "Experience",
+        section_education: "Education",
+        section_skills: "Skills",
+        section_certifications: "Certifications",
+        section_projects: "Projects",
+        section_references: "References",
+        references_subtitle: "References I have worked with during my professional and internship processes.",
+        ref_1_title: "Karabük University, Computer Engineering Faculty Member",
+        ref_2_title: "Karabük University, Computer Engineering Department Chair",
+        ref_3_title: "Director of Youth Services",
+        ref_4_title: "Kardemir Mechanical Engineer",
+        ref_5_title: "Karabük Üniversitesi, Mechanical Engineering Department Chair",
+        ref_6_title: "Çağçelik Maintenance and Operations Manager",
+        view_project: "View Project",
+        featured: "Featured",
+        projects_subtitle: "Selected works in mechatronics, robotics and embedded systems.",
+
+        about_bio: "Throughout my education, I developed myself in research, self-motivation and entrepreneurship. The Teknofest competitions I attended and the personal development projects I gained in my university environment not only reinforced my technical skills but also helped me gain competencies such as teamwork, problem solving and project management. Professionally, I worked on heavy-lift drone systems at a technology company, actively contributing to both hardware and software processes. In addition, I continued to gain knowledge and experience in IoT, software development and image processing through individual research. I am aware of the importance of dedicated and willing work to produce fast and effective solutions in business life. I have a personality that is not afraid to take responsibility with curiosity and desire to learn. I believe that being open to improvement, careful and meticulous work will bring success.",
+        exp_1_role: "Field Engineer",
+        exp_1_company: "Çağçelik Demirçelik AŞ",
+        exp_1_location: "Karabük/Merkez",
+        exp_1_date: "2025-06 — 2025-12",
+        exp_1_desc: "Managed the packaging department, which is the final stage of production, at a factory operating in the iron and steel industry.",
+        exp_2_role: "Mechatronics Teacher",
+        exp_2_company: "Safran Robotik Becerikli Eller",
+        exp_2_location: "Karabük/Merkez",
+        exp_2_date: "2024-12 — 2025-04",
+        exp_2_desc: "Taught algorithm, problem solving, robotic coding and 3D design with Fusion 360 to primary through high school students. Actively taught by preparing original curricula covering block-based coding, artificial intelligence, Arduino and ESP32/ESP8266 technologies.",
+        exp_3_role: "Mechatronics R&D Engineer",
+        exp_3_company: "Smart Defence A.Ş.",
+        exp_3_location: "İzmir/Güzelbahçe",
+        exp_3_date: "2023-05 — 2024-11",
+        exp_3_desc: "At an unmanned aerial vehicle R&D company, undertook team leadership, UAV and ground station software development, electronic integration and piloting duties. Key competencies gained include: rotary wing UAV stability and electronic assembly; piloting, Lua scripting for solving project-specific problems; image processing for object tracking and mapping; active Excel usage, dashboards and tables; presentation preparation, communication skills; crisis and risk management.",
+        edu_1_degree: "B.Sc.",
+        edu_1_field: "Mechatronics Engineering",
+        edu_1_date: "2018-10 — 2025-01",
+        edu_1_desc: "Graduation Thesis and Project: Speaker recognition and audio processing using CNN with MFCC.",
+        view_thesis: "📄 View Thesis PDF",
+        skill_cat_programming: "Programming",
+        skill_cat_ai: "AI / ML",
+        skill_cat_embedded: "Embedded Systems",
+        skill_cat_cad: "CAD / Design",
+        skill_cat_electronics: "Electronics",
+        skill_cat_languages: "Languages",
+        cert_1_name: "UAV 1 Commercial Pilot License",
+        cert_1_issuer: "Directorate General of Civil Aviation",
+        cert_2_name: "Applied Web 3.0 and NFT Training",
+        cert_2_issuer: "Gazi University",
+        cert_3_name: "Air Defense Systems Competition",
+        cert_4_name: "Model Satellite Competition",
+        cert_5_name: "Unmanned Aerial Vehicles Competition",
+        cert_6_name: "C# Certificate",
+        cert_6_issuer: "Online Education Platform",
+        cert_7_name: "CS50 Computer Science Certificate",
+        cert_7_issuer: "Harvard University (edX)",
+        cert_8_name: "AI for Everyone Certificate",
+        cert_8_issuer: "Online Education Platform",
+        cert_9_name: "Fuzzy Logic Certificate",
+        cert_9_issuer: "Online Education Platform",
+        cert_10_name: "YOLO (You Only Look Once) Deep Learning Certificate",
+        cert_10_issuer: "Online Education Platform",
+        lang_1_name: "Turkish",
+        lang_1_level: "Native",
+        lang_2_name: "English",
+        lang_2_level: "A2 - Elementary",
+
+        proj_1_title: "Fixed Wing Unmanned Aerial Vehicle Project",
+        proj_1_summary: "Flight controller software, electronic integration and team captaincy for a fixed wing UAV.",
+        proj_1_desc: "Developed flight controller software with Python and Lua including image processing for object tracking and target release. Built ground station interface software with C#. Performed overall electronic integration and served as team captain.",
+        proj_2_title: "Model Satellite Project",
+        proj_2_summary: "Flight controller with Teensy 4.1 and interface software with C#.",
+        proj_2_desc: "Developed flight controller software with Teensy 4.1 microprocessor. Built interface software with C#. Designed the PCB.",
+        proj_3_title: "Air Defense System Project",
+        proj_3_summary: "Image processing with YOLOv8 and electromagnetic weapon integration.",
+        proj_3_desc: "Developed image processing system with YOLOv8 including object detection and tracking with Arduino system. Built interface software with C#. Integrated electromagnetic weapon system.",
+        proj_5_title: "Machine Element Detection with Image Processing",
+        proj_5_summary: "Machine parts detection and classification with image processing.",
+        proj_5_desc: "An image processing project that recognizes machine parts using deep learning and YOLO-based object detection. The system supports single image analysis, multi-object detection with YOLO, ResNet50 classification, feature matching, hybrid recognition, and live camera support via ESP32Cam.",
+        proj_6_title: "Parking License Plate Recognition and Entry/Exit Tracking System",
+        proj_6_summary: "License plate recognition with image processing and OCR, entry/exit tracking with SQL records.",
+        proj_6_desc: "This project develops a parking entry/exit control system that recognizes vehicle license plates, logs entry and exit times, and tracks parking occupancy. Developed with Python and includes a desktop interface.",
+        proj_7_title: "YOLO-based PPE Equipment Inspection System",
+        proj_7_summary: "An AI system that detects personnel not wearing hard hats in real-time at construction sites and hazardous work areas.",
+        proj_7_desc: "Real-time and high-accuracy detection of personnel with and without hard hats using Deep Learning (YOLO). Instant and uninterrupted monitoring of hard hat violations through camera feeds. Automatic notification mechanism that sends alerts to relevant units in case of violations.",
+      }
+    };
+
+    // ===== STATE =====
+    let currentLang = localStorage.getItem("lang") || "tr";
+    let currentTheme = localStorage.getItem("theme") || "light";
+
+    // ===== THEME =====
+    function applyTheme(theme) {
+      document.documentElement.setAttribute("data-theme", theme);
+      const sunIcon = document.getElementById("theme-icon-sun");
+      const moonIcon = document.getElementById("theme-icon-moon");
+      if (theme === "dark") {
+        sunIcon.style.display = "none";
+        moonIcon.style.display = "block";
+      } else {
+        sunIcon.style.display = "block";
+        moonIcon.style.display = "none";
+      }
+      localStorage.setItem("theme", theme);
+      currentTheme = theme;
+    }
+
+    function toggleTheme() {
+      applyTheme(currentTheme === "dark" ? "light" : "dark");
+    }
+
+    // ===== LANGUAGE =====
+    function applyLang(lang) {
+      currentLang = lang;
+      document.documentElement.lang = lang === "tr" ? "tr" : "en";
+      document.getElementById("lang-label").textContent = lang.toUpperCase();
+      localStorage.setItem("lang", lang);
+
+      // Update all i18n elements
+      document.querySelectorAll("[data-i18n]").forEach(el => {
+        const key = el.getAttribute("data-i18n");
+        if (translations[lang] && translations[lang][key]) {
+          el.textContent = translations[lang][key];
+        }
+      });
+
+      // Update data-testid elements that have i18n content
+      document.querySelectorAll("[data-testid]").forEach(el => {
+        const key = el.getAttribute("data-i18n");
+        if (key && translations[lang] && translations[lang][key]) {
+          el.textContent = translations[lang][key];
+        }
+      });
+    }
+
+    function toggleLang() {
+      applyLang(currentLang === "tr" ? "en" : "tr");
+    }
+
+    // ===== MOBILE MENU =====
+    function toggleMobileMenu() {
+      document.getElementById("mobile-menu").classList.toggle("open");
+    }
+    function closeMobileMenu() {
+      document.getElementById("mobile-menu").classList.remove("open");
+    }
+
+    // ===== IMAGE ERROR HANDLING =====
+    document.addEventListener("error", function(e) {
+      var target = e.target;
+      if (target.tagName !== "IMG") return;
+      var action = target.getAttribute("data-img-error");
+      if (!action) return;
+      if (action === "hide") {
+        target.style.display = "none";
+      } else if (action === "avatar-placeholder") {
+        target.outerHTML = '<div class="avatar-placeholder">ST</div>';
+      } else if (action === "project-placeholder") {
+        target.outerHTML = '<div class="project-cover-placeholder"></div>';
+      }
+    }, true);
+
+    // ===== SCROLL ANIMATIONS =====
+    function initScrollAnimations() {
+      const animateElements = document.querySelectorAll("[data-animate]");
+      const staggerElements = document.querySelectorAll("[data-stagger]");
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+          }
+        });
+      }, { threshold: 0.1, rootMargin: "0px 0px -50px 0px" });
+
+      animateElements.forEach(el => observer.observe(el));
+      staggerElements.forEach(el => observer.observe(el));
+
+      // Stagger children are handled via CSS on parent.visible class
+    }
+
+    // ===== SMOOTH SCROLL FOR ANCHOR LINKS =====
+    document.addEventListener("click", (e) => {
+      const link = e.target.closest("a[href^='#']");
+      if (link) {
+        e.preventDefault();
+        const target = document.querySelector(link.getAttribute("href"));
+        if (target) {
+          const headerHeight = 64;
+          const targetPosition = target.getBoundingClientRect().top + window.scrollY - headerHeight;
+          window.scrollTo({ top: targetPosition, behavior: "smooth" });
+        }
+      }
+    });
+
+    // ===== INIT =====
+    applyTheme(currentTheme);
+    applyLang(currentLang);
+
+    // Initialize animations after DOM ready
+    document.addEventListener("DOMContentLoaded", () => {
+      initScrollAnimations();
+      // Trigger visible on elements already in viewport
+      setTimeout(() => {
+        document.querySelectorAll("[data-animate], [data-stagger]").forEach(el => {
+          const rect = el.getBoundingClientRect();
+          if (rect.top < window.innerHeight) el.classList.add("visible");
+        });
+      }, 100);
+    });
+
+    // Fallback: if DOM already loaded
+    if (document.readyState === "complete" || document.readyState === "interactive") {
+      initScrollAnimations();
+      setTimeout(() => {
+        document.querySelectorAll("[data-animate], [data-stagger]").forEach(el => {
+          const rect = el.getBoundingClientRect();
+          if (rect.top < window.innerHeight) el.classList.add("visible");
+        });
+      }, 100);
+    }
+  </script>
+</body>
+</html>
